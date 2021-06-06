@@ -1,0 +1,24 @@
+Goal: Given an image, classify as taken "during the day" (0) or "during the night" (1).
+
+1. Data?
+Labeled images captured during the day and during the night (outdoor and indoor or only outdoor? are there images that were taken in sunrise or sunset?;
+depending on these things the problem will be more or less complex)
+
+2. Number of images?
+You want to try to gauge the complexity of the task. So, let's say, we did a problem that was cat recognition. Detect if there is a cat on an image or not.
+In this problem, we remember that with 10 000 images we managed to train a pretty good classifier. How do you compare this problem to the cat problem? Is it easier
+or harder? It's easier. So in terms of complexity, this task looks less complex than the cat recognition task, so you would probably need less data.
+That's a rule of thumb. 
+
+3. Train/Test split?
+Around 80/20%. The bigger the dataset the more I would put in the train set.
+
+4. Bias?
+You need a correct balance between classes. Ideally, 50:50%.
+
+5. Resolution?
+As small as possible to achieve a good result (computational cost). How to get this number? Compare to human performance. Lets humans to classify images on
+different resolutions. Select the smallest one on which humans've got a perfect performanse.
+
+6. Cost function?
+This is a binary classification problem so you'll use binary cross-entropy as your cost function.
