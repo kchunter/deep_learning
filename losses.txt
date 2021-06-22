@@ -1,0 +1,19 @@
+Why is my validation loss lower than my training loss?
+
+Reason #1: Regularization applied during training, but not during validation/testing
+  - The most common reason is regularization (e.g., dropout), since it applies during training, but not during validation & testing.
+    If we add the regularization loss to the validation loss, things look much different.
+    
+Reason #2: Training loss is measured during each epoch while the validation loss is measured after each epoch
+  - Oh and the training loss is measured *during* each epoch, while the validation loss is measured *after* each epoch, so on average
+    the training loss is measured 1/2 an epoch earlier. If we shift it by 1/2 an epoch to the left (where is should be), things again
+    look much different.
+    
+Reason #3: The validation set may be easier than the training set (or there may be leaks)
+  - Or perhaps the val set is easier than the training set! This can happen by chance if the val set is too small, or if it wasn't
+    properly sampled (e.g., too many easy classes). Or the train set leaked into the val set. Or you are using data augmentation
+    during training.
+    
+Bonus: Are you training hard enough?
+  - You may be over-regularizing your model. Try reducing your regularization constraints, including increasing your model capacity 
+    (i.e., making it deeper with more parameters), reducing dropout, reducing L2 weight decay strength, etc.
