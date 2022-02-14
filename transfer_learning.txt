@@ -1,0 +1,8 @@
+NLP
+---
+1) (Pre) train a language model on a general-domain corpus (e.g. WikiText-103) to capture general features of the language. This kind of task is called self-supervised learning.
+2) Fine-tune the pretrained language model to your own/custom/target dataset/corpus. This is done because the Wikipedia English will for sure be slightly different (maybe a less formal style of language) from your dataset English. This is also the self-supervised learning.
+3) Train/fine-tune this pretrained language model on/for your own downstream NLP task (e.g. classification)
+
+CV
+--
